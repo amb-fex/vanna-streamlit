@@ -1,3 +1,4 @@
 vanna
 streamlit
 python-dotenv
+git+https://huggingface.co/spaces/sxdes/AnaliticaBOT
