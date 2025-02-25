@@ -1,11 +1,25 @@
 import streamlit as st
 
 from vanna.remote import VannaDefault
+from ensayovanna import amb_vanna
 
 @st.cache_resource(ttl=3600)
 def setup_vanna():
-    vn = VannaDefault(api_key=st.secrets.get("VANNA_API_KEY"), model='chinook')
-    vn.connect_to_sqlite("https://vanna.ai/Chinook.sqlite")
+    config = {
+    "connection_string": "postgresql://postgres.spdwbcfeoefxnlfdhlgi:chatbot2025@aws-0-eu-central-1.pooler.supabase.com:6543/postgres?options=-csearch_path=vector_store",
+    "model_name_or_path": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"
+    }
+    vn = AmbVanna(config)
+    # Me conecto a la base de datos donde esta las tablas con la analitica web del geoportar del AMB
+    vn.connect_to_postgres(host='aws-0-eu-central-1.pooler.supabase.com', 
+                                  dbname='postgres', 
+                                  user='postgres.spdwbcfeoefxnlfdhlgi', 
+                                  password='chatbot2025', 
+                                  port='6543')
+
+
+
+    
     return vn
 
 @st.cache_data(show_spinner="Generating sample questions ...")
