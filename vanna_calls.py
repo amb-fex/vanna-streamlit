@@ -1,5 +1,4 @@
 import streamlit as st
-
 from vanna.remote import VannaDefault
 from AnaliticaBOT import amb_vanna
 
