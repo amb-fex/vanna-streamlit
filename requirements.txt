@@ -2,3 +2,13 @@ vanna
 streamlit
 python-dotenv
 git+https://huggingface.co/spaces/sxdes/AnaliticaBOT
+huggingface_hub==0.25.2
+git+https://github.com/amb-fex/vanna.git
+vanna[postgres]
+transformers
+accelerate>=0.26.0
+langchain_core
+langchain_postgres
+sqlalchemy
+langchain_huggingface
+psycopg2-binary
