@@ -12,7 +12,7 @@ from vanna_calls import (
     generate_summary_cached
 )
 
-avatar_url = "https://www.amb.cat/o/amb-generic-theme/images/favicon.ico"
+avatar_url = "https://imgur.com/a/AMxVhby"
 
 st.set_page_config(layout="wide")
 
