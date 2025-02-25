@@ -1,6 +1,8 @@
 import streamlit as st
 #from vanna.remote import VannaDefault
 import amb_vanna
+from AnaliticaBOT.amb_vanna import AmbVanna
+
 
 @st.cache_resource(ttl=3600)
 def setup_vanna():
