@@ -1,5 +1,5 @@
 import streamlit as st
-from vanna.remote import VannaDefault
+#from vanna.remote import VannaDefault
 import amb_vanna
 
 @st.cache_resource(ttl=3600)
