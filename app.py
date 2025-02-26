@@ -16,26 +16,25 @@ avatar_url = "https://vanna.ai/img/vanna.svg"
 
 st.set_page_config(layout="wide")
 
-st.sidebar.title("Output Settings")
-st.sidebar.checkbox("Show SQL", value=True, key="show_sql")
-st.sidebar.checkbox("Show Table", value=True, key="show_table")
-st.sidebar.checkbox("Show Plotly Code", value=True, key="show_plotly_code")
-st.sidebar.checkbox("Show Chart", value=True, key="show_chart")
-st.sidebar.checkbox("Show Summary", value=True, key="show_summary")
-st.sidebar.checkbox("Show Follow-up Questions", value=True, key="show_followup")
-st.sidebar.button("Reset", on_click=lambda: set_question(None), use_container_width=True)
+st.sidebar.title("Configuració de sortida")
+st.sidebar.checkbox("Mostra SQL", value=True, key="show_sql")
+st.sidebar.checkbox("Mostra Taula", value=True, key="show_table")
+st.sidebar.checkbox("Mostra codi Plotly", value=True, key="show_plotly_code")
+st.sidebar.checkbox("Mostra gràfic", value=True, key="show_chart")
+st.sidebar.checkbox("Mostra resum", value=True, key="show_summary")
+st.sidebar.checkbox("Mostra preguntes de seguiment", value=True, key="show_followup")
+st.sidebar.button("Restableix", on_click=lambda: set_question(None), use_container_width=True)
 
-st.title("Vanna AI")
+st.title("Analítiques del geoportal")
 # st.sidebar.write(st.session_state)
-
 
 def set_question(question):
     st.session_state["my_question"] = question
 
-
 assistant_message_suggested = st.chat_message(
     "assistant", avatar=avatar_url
 )
+
 if assistant_message_suggested.button("Click to show suggested questions"):
     st.session_state["my_question"] = None
     questions = generate_questions_cached()
@@ -51,7 +50,7 @@ my_question = st.session_state.get("my_question", default=None)
 
 if my_question is None:
     my_question = st.chat_input(
-        "Ask me a question about your data",
+        "Fes-me una pregunta sobre les dades d'analítiques web del geoportal",
     )
 
 
@@ -140,7 +139,7 @@ if my_question:
 
                 if len(followup_questions) > 0:
                     assistant_message_followup.text(
-                        "Here are some possible follow-up questions"
+                        "Aquí tens algunes possibles preguntes de seguiment"
                     )
                     # Print the first 5 follow-up questions
                     for question in followup_questions[:5]:
