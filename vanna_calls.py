@@ -7,7 +7,7 @@ from AnaliticaBOT.amb_vanna import AmbVanna
 @st.cache_resource(ttl=3600)
 def setup_vanna():
     config = {
-    "connection_string": "postgresql://postgres.spdwbcfeoefxnlfdhlgi:chatbot2025@aws-0-eu-central-1.pooler.supabase.com:6543/postgres?options=-csearch_path=vector_store",
+    "connection_string": "postgresql://postgres.spdwbcfeoefxnlfdhlgi:DBPW@aws-0-eu-central-1.pooler.supabase.com:6543/postgres?options=-csearch_path=vector_store",
     "model_name_or_path": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"
     }
     vn = AmbVanna(config)
